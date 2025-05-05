@@ -1,0 +1,31 @@
+/* estilo al contenedor del layout */
+nav {
+    display: flex;
+    justify-content: center; /* Centra la lista horizontalmente */
+    padding: 1rem 0;
+}
+
+/* Estilo para la lista */
+nav ul {
+    list-style-position: inside; /* Mantiene el punto junto al texto */
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+/* Estilo para los elementos de la lista */
+nav ul li {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    color: blue;
+}
+
+/* Opcional: estilo para los enlaces */
+nav ul li a {
+    color: blue;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}

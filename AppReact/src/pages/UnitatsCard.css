@@ -1,0 +1,37 @@
+.unitats-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: sans-serif;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.unitats-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.unitats-btn:hover {
+    background-color: #0056b3;
+}
+
+.unitats-display {
+    font-size: 18px;
+    min-width: 20px;
+    text-align: center;
+}
