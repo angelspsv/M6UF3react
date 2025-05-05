@@ -18,11 +18,16 @@ function UnitatsCard(){
     } 
 
     return (
-        <div className="unitats-container">
-            <span>Unitats al carretó</span>
-            <button className="unitats-btn" onClick={() => incr()}>+</button>
-            <span className="unitats-display">{comp}</span>
-            <button className="unitats-btn" onClick={() => dec()}>-</button>
+        <div>
+            <div className="unitats-container">
+                <span>Unitats al carretó</span>
+                <button className="unitats-btn" onClick={() => incr()}>+</button>
+                <span className="unitats-display">{comp}</span>
+                <button className="unitats-btn" onClick={() => dec()}>-</button>
+            </div>
+            <div className="afegir">
+                <button className="btn-afegir" onClick={() => alert('Afegit al localStorage')}>Afegir producte a la cistella</button>
+            </div>
         </div>
     );
 }
