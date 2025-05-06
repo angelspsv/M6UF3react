@@ -127,7 +127,7 @@ function Product(props){
                     <p><strong>Nom:</strong> {nom}</p>
                     <p><strong>Descripció:</strong> {descripcio}</p>
                     <p><strong>Preu:</strong> {preu} €/kg</p>
-                    <UnitatsCard />
+                    <UnitatsCard producte={{ id, nom, preu }}/>
                 </>
             )}
 
