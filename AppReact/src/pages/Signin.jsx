@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Titol from './Titol.jsx';
-import Input from './Input.jsx';
-import Button from './Button.jsx';
+import React, { useState } from 'react';
 
 function Signin(){
     const [nom, setNom] = useState('');
@@ -78,24 +75,35 @@ function Signin(){
 
     return (
         <div>
-            <Titol text="Registre. Nou usuari:" />
-            <Input texto="Nom:" valor={nom} onCanvi={setNom} />
-            <Input texto="Correu:" valor={email} onCanvi={setEmail} />
-            <Input texto="Contrasenya:" valor={contrasenya} onCanvi={setContrasenya} />
-            <Input texto="Any de naixement:" valor={any_neix} onCanvi={setAny} />
-            {/* Selector per indicar si és admin */}
-            <span>
-                <span>Admin:</span>
-                <select value={admin} onChange={(e) => setAdmin(e.target.value === 'true')}>
-                    <option value="false">No</option>
-                    <option value="true">Si</option>
-                </select>
-            </span>
-            <Button text="Registra't!" onClick={
-                function(){crearNouUsuari()}
-            } />
+            <h2>Pàgina de registre</h2>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                crearNouUsuari();
+            }}>
+                <label htmlFor="nom">Nom: </label>
+                <input id="nom" type="text" value={nom} onChange={(e) => setNom(e.target.value)} />
+                <br />
+                <label htmlFor="mail">Correu: </label>
+                <input id="mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <br />
+                <label htmlFor="password">Contrasenya: </label>
+                <input id="password" type="password" value={contrasenya} onChange={(e) => setContrasenya(e.target.value)} />
+                <br />
+                <label htmlFor="year">Any de naixement: </label>
+                <input id="year" type="text" value={any_neix} onChange={(e) => setAny(e.target.value)} />
+                <br />
+                {/* Selector per indicar si és admin */}
+                <span>
+                    <span>Admin:</span>
+                    <select value={admin} onChange={(e) => setAdmin(e.target.value === 'true')}>
+                        <option value="false">No</option>
+                        <option value="true">Si</option>
+                    </select>
+                </span>
+                <br /> <br />
+                <button type="submit">Registra't!</button>
+            </form>
         </div>
-
     )
 }
 

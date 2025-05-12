@@ -9,9 +9,7 @@ function FormulariProducte() {
     const navigate = useNavigate();
 
 
-    async function crearProducte(event){
-        //per evitar el reload de la pagina
-        event.preventDefault();
+    async function crearNouProducte(){
         //primer pas
         //validem les dades entrades: el preu ha de ser num valid
         //en el formulari els 3 camps son required aixi que no mirem si estan buits
@@ -53,13 +51,24 @@ function FormulariProducte() {
     }
 
     return (
-        <form onSubmit={ crearProducte }>
-            <h2>Nou Producte</h2>
-            Nom:<input type="text" value={nom} onChange={(e) => setNom(e.target.value)} required /><br></br>
-            Descripció:<input type="text" value={descripcio} onChange={(e) => setDescripcio(e.target.value)} required /><br></br>
-            Preu:<input type="number" step="0.01" value={preu} onChange={(e) => setPreu(e.target.value)} required /><br></br>
-            <button type="submit">Afegir</button>
-        </form>
+        <div>
+            <h2>Crea nou producte</h2>
+            <form onSubmit={(e)=>{
+                e.preventDefault();
+                crearNouProducte();
+            }}>
+                <label htmlFor="nom">Nom: </label>
+                <input id="nom" type="text" value={nom} onChange={(e)=> setNom(e.target.value)} required />
+                <br />
+                <label htmlFor='descripcio'>Descripcio: </label>
+                <input id="descripcio" type="text" value={descripcio} onChange={(e)=> setDescripcio(e.target.value)} required />
+                <br />
+                <label htmlFor='preu'>Preu: </label>
+                <input id="preu" type="text" value={preu} onChange={(e)=> setPreu(e.target.value)} required />
+                <br /><br />
+                <button type="submit">Crea'l</button>
+            </form>
+        </div>
     );
 }
 
