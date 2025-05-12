@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Button from './pages/Button.jsx'
 import Input from './pages/Input.jsx'
-import UserList from './UserList.jsx';
 
 
 function IniciSessio(){

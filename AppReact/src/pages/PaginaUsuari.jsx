@@ -121,9 +121,9 @@ function PaginaUsuari({ setIsAuthenticated, usuari, admin }){
                 </button>
             )}
 
-            <p>TEMPORAL: {usuari} és admin: {admin.toString()}</p>
             <h1>Benvingut al teu panell, {usuari.toUpperCase()}!</h1>
-            <p>Aquesta és una pàgina de productes amb diferentes opcions d'acord si un usuari té permisos d'admin o no.</p>
+            <p>Aquesta és una pàgina de productes amb diferentes opcions d'acord si un usuari té permisos d'admin o no. En aquest cas, tu {admin ? "tens" : "no tens"} permisos d'administrador!</p>
+                        
 
 
             <Buscador onBuscar={gestioCerca} />

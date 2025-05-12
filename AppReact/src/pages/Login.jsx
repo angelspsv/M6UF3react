@@ -1,7 +1,4 @@
 import { useState } from 'react';
-import Button from './Button.jsx';
-import Input from './Input.jsx';
-import Titol from './Titol.jsx';
 import LoginFormElement from './LoginFormElement.jsx';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +8,7 @@ function Login({ setIsAuthenticated, setUsuari, setAdmin }){
     const [contrasenya, setContrasenya] = useState('');
     const navigate = useNavigate();
 
-    async function mostrarMailPassword() {
+    async function entrarZonaPersonal(){
         //per veure que tenim com email i contrasenya entrats
         console.log(`Correu: ${mail}\nContrasenya: ${contrasenya}`);
 
@@ -65,7 +62,7 @@ function Login({ setIsAuthenticated, setUsuari, setAdmin }){
 
     return (
         <div>
-            <LoginFormElement email={mail} setEmail={setMail} password={contrasenya} setPassword={setContrasenya} iniciarSessio={mostrarMailPassword}/>
+            <LoginFormElement email={mail} setEmail={setMail} password={contrasenya} setPassword={setContrasenya} iniciarSessio={entrarZonaPersonal}/>
         </div>
     )
 }

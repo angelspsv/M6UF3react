@@ -10,7 +10,7 @@ function Signin(){
     const [any_neix, setAny] = useState('');
     const [admin, setAdmin] = useState(false); //boolean
 
-    async function mostrarDadesNouUsuari(){
+    async function crearNouUsuari(){
         //fer aqui comprovacions per les dades entrades per l'usuari
         //.trim().toLowerCase()... que any_neix sigui numeric...
         //si un camp es incorrecte => return/alert
@@ -92,7 +92,7 @@ function Signin(){
                 </select>
             </span>
             <Button text="Registra't!" onClick={
-                function(){mostrarDadesNouUsuari()}
+                function(){crearNouUsuari()}
             } />
         </div>
 
