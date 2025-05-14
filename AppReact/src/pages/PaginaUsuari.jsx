@@ -13,7 +13,7 @@ function PaginaUsuari({ setIsAuthenticated, usuari, admin }){
     const [productes, setProductes] = useState([]);
 
     
-
+    //funcio per tanca sessio de l'usuari per sortir
     function tancarSessio(){
         //demanem confimacio abans de tancar la sessio
         if(confirm('Vols tancar la sessió i sortir?')){
@@ -109,22 +109,20 @@ function PaginaUsuari({ setIsAuthenticated, usuari, admin }){
     }
 
 
-
     return (
         <div>
             <Button text='Sortir' onClick={ function(){
                 tancarSessio();
             }}/>
+
+            <h1>Benvingut al teu panell, {usuari.toUpperCase()}!</h1>
+            <p>Aquesta és una pàgina de productes amb diferentes opcions d'acord si un usuari té permisos d'admin o no. En aquest cas, tu {admin ? "tens" : "no tens"} permisos d'administrador!</p>
+                        
             {admin && (
                 <button onClick={() => navigate('/nou_producte')}>
                     Crear nou producte
                 </button>
             )}
-
-            <h1>Benvingut al teu panell, {usuari.toUpperCase()}!</h1>
-            <p>Aquesta és una pàgina de productes amb diferentes opcions d'acord si un usuari té permisos d'admin o no. En aquest cas, tu {admin ? "tens" : "no tens"} permisos d'administrador!</p>
-                        
-
 
             <Buscador onBuscar={gestioCerca} />
             {productes.length > 0 && (
