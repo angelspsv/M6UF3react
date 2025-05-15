@@ -19,6 +19,8 @@ function Login({ setIsAuthenticated, setUsuari, setAdmin }){
             return;
         }
 
+        //fem la consulta per obtenir les dades de l'usuari i 
+        //veure si mail i pswd son correctes per poder accedir
         try{
             const resposta = await fetch(`http://localhost:3000/users`);
 

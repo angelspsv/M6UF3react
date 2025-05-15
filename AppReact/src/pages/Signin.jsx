@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 
 function Signin(){
-    const [nom, setNom] = useState('');
-    const [email, setEmail] = useState('');
-    const [contrasenya, setContrasenya] = useState('');
-    const [any_neix, setAny] = useState('');
+    const [nomEntrat, setNom] = useState('');
+    const [emailEntrat, setEmail] = useState('');
+    const [contrasenyaEntrada, setContrasenya] = useState('');
+    const [any_neixEntrat, setAny] = useState('');
     const [admin, setAdmin] = useState(false); //boolean
 
     async function crearNouUsuari(){
         //fer aqui comprovacions per les dades entrades per l'usuari
         //.trim().toLowerCase()... que any_neix sigui numeric...
         //si un camp es incorrecte => return/alert
+        //treiem posibles espais en blanc i email en minuscules
+        let nom = nomEntrat.trim();
+        let email = emailEntrat.trim().toLowerCase();
+        let contrasenya = contrasenyaEntrada.trim();
+        let any_neix = any_neixEntrat.trim();
+
+        //validem que els camps no estiguin buits
         if (!nom || !email || !contrasenya || !any_neix){
             alert('No hi pot haver camps buits!');
             console.log('No hi pot haver camps buits!');
@@ -36,7 +43,7 @@ function Signin(){
             return;
         }
 
-
+        //construim objecte amb les dades del nou usuari
         const nouUsuari = {nom, email, contrasenya, any_neix, admin,};
 
         alert(`Dades del nou usuari:\n
@@ -81,18 +88,18 @@ function Signin(){
                 crearNouUsuari();
             }}>
                 <label htmlFor="nom">Nom: </label>
-                <input id="nom" type="text" value={nom} onChange={(e) => setNom(e.target.value)} />
+                <input id="nom" type="text" value={nomEntrat} onChange={(e) => setNom(e.target.value)} />
                 <br />
                 <label htmlFor="mail">Correu: </label>
-                <input id="mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input id="mail" type="email" value={emailEntrat} onChange={(e) => setEmail(e.target.value)} />
                 <br />
                 <label htmlFor="password">Contrasenya: </label>
-                <input id="password" type="password" value={contrasenya} onChange={(e) => setContrasenya(e.target.value)} />
+                <input id="password" type="password" value={contrasenyaEntrada} onChange={(e) => setContrasenya(e.target.value)} />
                 <br />
                 <label htmlFor="year">Any de naixement: </label>
-                <input id="year" type="text" value={any_neix} onChange={(e) => setAny(e.target.value)} />
+                <input id="year" type="text" value={any_neixEntrat} onChange={(e) => setAny(e.target.value)} />
                 <br />
-                {/* Selector per indicar si és admin */}
+                {/* selector per indicar si es admin */}
                 <span>
                     <span>Admin:</span>
                     <select value={admin} onChange={(e) => setAdmin(e.target.value === 'true')}>
